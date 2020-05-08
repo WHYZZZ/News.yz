@@ -1,17 +1,24 @@
 package com.example.newsyz
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignupActivity : AppCompatActivity() {
+
+    private val auth by lazy { FirebaseAuth.getInstance() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
         setupViews()
+        //signUp(edittextId.text.toString(),edittextPwd.text.toString())
+
     }
 
     private fun setupViews(){
@@ -20,12 +27,56 @@ class SignupActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btnSignup.setOnClickListener(){
-            val intent=Intent(this,HomeActivity::class.java)
-            startActivity(intent)
+/*        btnSignup.setOnClickListener(){
+            if (edittextPwd.text.toString()==edittextPwdConf.text.toString()){
+                if (edittextId.text.toString()!=""){
 
-            finish()
+
+
+                    val intent=Intent(this,HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                else{
+                    Toast.makeText(this,R.string.empty_field_err,Toast.LENGTH_LONG).show()
+                }
+            }
+            else {
+                Toast.makeText(this,R.string.pwd_mismatch,Toast.LENGTH_LONG).show()
+            }
+        }*/
+
+        btnSignup.setOnClickListener() {
+            if (edittextPwd.text.toString() == edittextPwdConf.text.toString()) {
+                auth.createUserWithEmailAndPassword(edittextId.text.toString(), edittextPwd.text.toString())
+                    .addOnCompleteListener() { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, R.string.create_user_success, Toast.LENGTH_LONG)
+                                .show()
+
+                            PreferencesManager.saveEmail(this, edittextId.text.toString())
+                            PreferencesManager.saveState(this, true)
+
+                            val intent = Intent(this, HomeActivity::class.java)
+                            startActivity(intent)
+                            finish()
+
+                            return@addOnCompleteListener
+                        } else {
+                            Toast.makeText(this, task.exception?.message, Toast.LENGTH_LONG).show()
+                        }
+                    }
+            }
+            else{
+                Toast.makeText(this,R.string.pwd_mismatch,Toast.LENGTH_LONG).show()
+            }
         }
+
+    }
+
+    private fun signUp(email:String, password:String){
+
+
     }
 
 }

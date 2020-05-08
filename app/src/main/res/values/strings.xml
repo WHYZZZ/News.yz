@@ -14,4 +14,7 @@
     <string name="content_description">Content description</string>
 
     <string name="comment_success">Your comment is uploaded</string>
+    <string name="pwd_mismatch">Check if passwords match</string>
+    <string name="empty_field_err">Check if fields are filled</string>
+    <string name="create_user_success">Your account have been created successfully</string>
 </resources>

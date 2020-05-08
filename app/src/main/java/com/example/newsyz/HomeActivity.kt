@@ -11,6 +11,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        label_username.setText(PreferencesManager.getEmail(this))
         setupViews()
     }
 
@@ -30,6 +31,13 @@ class HomeActivity : AppCompatActivity() {
         buttonComment.setOnClickListener(){
             val intent = Intent(this,CommentActivity::class.java)
             startActivity(intent)
+        }
+
+        btnLogout.setOnClickListener(){
+            val intent=Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            PreferencesManager.saveState(this,false)
         }
     }
 }

@@ -19,6 +19,7 @@
         android:layout_marginBottom="50dp"></TextView>
 
     <EditText
+        android:id="@+id/edittextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -26,6 +27,7 @@
         android:inputType="textEmailAddress"></EditText>
 
     <EditText
+        android:id="@+id/edittextPwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

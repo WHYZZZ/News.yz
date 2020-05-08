@@ -12,6 +12,32 @@
     android:background="@drawable/home_background"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_marginRight="10dp"
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Logout"
+            android:background="@color/colorPrimary"
+            android:textColor="#ffffff"
+            ></Button>
+
+        <TextView
+            android:id="@+id/label_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_name"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15dp"></TextView>
+
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="match_parent"
