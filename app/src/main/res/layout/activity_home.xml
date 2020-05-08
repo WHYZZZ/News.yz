@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:layout_gravity="center_horizontal"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    android:background="@drawable/home_background"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/comment_title"
+        android:textSize="30dp"
+        android:textColor="@color/colorPrimary"
+        ></TextView>
+    <ImageView
+        android:id="@+id/imgNews"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/coronavirus"
+        ></ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonLike"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:background="@drawable/button_not_liked"></Button>
+
+        <Button
+            android:id="@+id/buttonComment"
+            android:layout_marginLeft="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/message_bubble"></Button>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/description_scrollview"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/description_text"
+            android:text="@string/content_description"
+            android:textColor="@color/colorPrimary"
+            ></TextView>
+    </ScrollView>
+
+
+</LinearLayout>

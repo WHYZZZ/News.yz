@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">News.yz</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="link_login">Already have an account? <u>Log in</u></string>
+    <string name="link_signup">Do not have an account? <u>Create one</u></string>
+
+    <string name="comment_title">Title</string>
+    <string name="comment_content">Comment</string>
+
+    <string name="user_name">username</string>
+    <string name="content_description">Content description</string>
+
+    <string name="comment_success">Your comment is uploaded</string>
+</resources>
