@@ -17,4 +17,6 @@
     <string name="pwd_mismatch">Check if passwords match</string>
     <string name="empty_field_err">Check if fields are filled</string>
     <string name="create_user_success">Your account have been created successfully</string>
+
+    <string name="like_clicked">Эта кнопка ничего не делает. Просто красивая кнопочка </string>
 </resources>

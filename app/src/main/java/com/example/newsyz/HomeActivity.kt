@@ -3,9 +3,13 @@ package com.example.newsyz
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
+
+    private val auth by lazy { FirebaseAuth.getInstance() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +29,8 @@ class HomeActivity : AppCompatActivity() {
             else{
                 liked=true
                 buttonLike.setBackgroundResource(R.drawable.button_like)
+
+                Toast.makeText(this,R.string.like_clicked,Toast.LENGTH_LONG).show()
             }
         }
 
@@ -33,11 +39,12 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btnLogout.setOnClickListener(){
-            val intent=Intent(this,LoginActivity::class.java)
+        label_username.setOnClickListener(){
+            val intent=Intent(this,ProfileActivity::class.java)
             startActivity(intent)
             finish()
-            PreferencesManager.saveState(this,false)
+
+
         }
     }
 }
